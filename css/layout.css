@@ -1,0 +1,47 @@
+ ** :before, *:after {
+    box-sizing: border-box;
+ }
+
+ body {
+    width: 960px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center; 
+    margin: 0 auto;
+}
+
+header {font-size: 30px;
+    /* clear: both; */
+}
+
+h2{
+    font-size: 15px;
+}
+
+.photo{
+    text-align: center;
+}
+
+section#photo-template{
+    width: 270px;
+    height: 270px;
+    background-color: rgb(228, 228, 228);
+    margin: 10px;
+    float: left;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+section#photo-template:first-child{
+display: none;
+}
+
+img {
+    width: 50%;
+    
+}  
+
+footer {
+    clear: both;
+    text-align: center;
+}
+ 
