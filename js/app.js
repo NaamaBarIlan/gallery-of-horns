@@ -43,21 +43,37 @@ function displayPage(images) {
   makeDropDown(images);
 }
 
+// function makeFilter(keywords) {
+
+//   keywords.forEach(keyword => {
+//   const $newKeyword = $('#filter-option').clone();
+//   $newKeyword.find('option').text(element.keywords);
+
+// })
+// }
+
 function makeDropDown(images){
   // create an array to hold keywords
-  const keywords = [];
+  const keywordsArray = [];
 
   // we need to push all keywords into the keyword array
 
   images.forEach((element, i)=> {
     // check if the array already has that word before pushing
     // if the word is not in the array
-    if(!keywords.includes(element.keyword)){
-      keywords.push(element.keyword) 
+    if(!keywordsArray.includes(element.keyword)){
+      keywordsArray.push(element.keyword) 
     }
   });
 
-  console.log('keywords arr', keywords);
+  keywordsArray.forEach((arrayElement) => {
+    // const $newKeyword = $('#filter-option').clone();
+    // $newKeyword.find('option').text(element.keyword);
+    $('select').append($('<option>', {value: arrayElement, text: arrayElement}))
+    console.log('arrayElement keyword', arrayElement);
+  });  
+  
+  console.log('keywords arr', keywordsArray);
 }
 
 
