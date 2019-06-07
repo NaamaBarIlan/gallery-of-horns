@@ -7,11 +7,7 @@ Number and name of feature: #1: Display images
 
 Estimate of time needed to complete: 25 minutes
 
-Start time: 10:50
-
-Finish time: _____
-
-Actual time needed to complete: _____
+Actual time needed to complete: Day 1
 
 ##
 
@@ -19,11 +15,7 @@ Number and name of feature: #2: Filter images
 
 Estimate of time needed to complete: 25 minutes
 
-Start time: _____
-
-Finish time: _____
-
-Actual time needed to complete: _____
+Actual time needed to complete: Day 2
 
 ##
 
@@ -31,11 +23,7 @@ Number and name of feature: #3: Style the application
 
 Estimate of time needed to complete: 25 minutes
 
-Start time: _____
-
-Finish time: _____
-
-Actual time needed to complete: _____
+Actual time needed to complete: Day 2
 
 ### Prerequisites
 
@@ -48,8 +36,8 @@ None.
 
 ## Authors
 
+* **Sara Haynes** - [GitHub Profile](https://github.com/SaraJHaynes)
 * **Na'ama Bar-Ilan** - [GitHub Profile](https://github.com/NaamaBarIlan)
-
 
 ## License
 
