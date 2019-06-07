@@ -4,7 +4,6 @@ function startApp(){
   loadData();
 }
 
-
 function loadData(){
 
   // const tester = data => data.forEach(object => dataArray.push(object));
@@ -30,8 +29,7 @@ function displayPage(images) {
     $newImage.find('h2').text(creatureObj.title);
     $newImage.find('img').attr('src', creatureObj.image_url);
     $newImage.find('p').text(creatureObj.description);
-
-    // $newImage.removeClass('photo-template');
+    $newImage.attr('class', creatureObj.keyword);
 
     // data attributes, don't have display meaning, but have meaning for the dev:
     // $newImage.attr('data-type', images.type);
@@ -42,15 +40,6 @@ function displayPage(images) {
 	
   makeDropDown(images);
 }
-
-// function makeFilter(keywords) {
-
-//   keywords.forEach(keyword => {
-//   const $newKeyword = $('#filter-option').clone();
-//   $newKeyword.find('option').text(element.keywords);
-
-// })
-// }
 
 function makeDropDown(images){
   // create an array to hold keywords
@@ -67,13 +56,26 @@ function makeDropDown(images){
   });
 
   keywordsArray.forEach((arrayElement) => {
-    // const $newKeyword = $('#filter-option').clone();
-    // $newKeyword.find('option').text(element.keyword);
     $('select').append($('<option>', {value: arrayElement, text: arrayElement}))
     console.log('arrayElement keyword', arrayElement);
   });  
   
   console.log('keywords arr', keywordsArray);
+
+  $('select').on('change', handleChange);
+}
+
+const handleChange = event => {
+  const dropOption = $(event.target).val();
+
+  if(dropOption === 'default'){
+    $('main section').show();
+    $('#photo-template:first-child').hide();
+  } else {
+    $('main section').hide();
+    $(`.${dropOption}`).show();
+  }
+  // console.log('dropOption', dropOption);
 }
 
 
