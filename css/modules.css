@@ -1,9 +1,10 @@
-h1 {
-    font-family: 'Carter One', cursive;
-    font-size: 85px;
-    margin: 50px;
-}
 
-h2 {
-    font-size: 15px;
+#filter-button {
+    box-shadow: 0 0 10px #7777;
+    height: 30px;
+    margin: 12px;
+}
+li:hover{
+    background-color: rgb(216, 232, 240);
+  
 }
