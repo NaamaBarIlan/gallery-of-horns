@@ -101,7 +101,7 @@ const handlePageNum = event => {
   $('.photo').show();
   loadData(pageNumber);
 
-  // console.log('page num', pageNumber);
+  console.log('page num', pageNumber);
   // console.log('click event', event.target);
 }
 
