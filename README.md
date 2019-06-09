@@ -33,7 +33,7 @@ Number and name of feature: #1 Pagination
 
 Estimate of time needed to complete: 2 hours
 
-Actual time needed to complete: _____
+Actual time needed to complete: Day 1
 
 ##
 
@@ -41,7 +41,7 @@ Number and name of feature: #2 Templating
 
 Estimate of time needed to complete: 2 hours
 
-Actual time needed to complete: _____
+Actual time needed to complete: Day 2
 
 ##
 
@@ -49,7 +49,7 @@ Number and name of feature: #4 Styling with Flexbox
 
 Estimate of time needed to complete: 2 hours
 
-Actual time needed to complete: _____
+Actual time needed to complete: Day 2
 
 ##
 
