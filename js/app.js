@@ -8,7 +8,9 @@ function loadData(pageNum){
 
   // const tester = data => data.forEach(object => dataArray.push(object));
 
-  const success = images => displayPage(images);
+  const success = images => {
+    displayPage(images);
+  }
 
   // const success = images => console.log(images);
   const failure = error => console.error(error);
@@ -20,35 +22,36 @@ function loadData(pageNum){
 
 function displayPage(images) {
 
-  // console.log('images', images);
+  // Clearing any old content before loading the new content:
+  $('.photo').empty();
 
-  // Clearing any old content before loading the new content with a .not() and .remove()
 
-  $('section').not('.photo-template').remove();
+  const template = $('#handlebar-temp').html();
 
-  // images is the array, image is an item in the array(obj).
+  // console.log('displayPage template', template);
+
+  const render = Handlebars.compile(template);
+
+  // console.log('displayPage render', render);
+
+  // images is the array, creatureObj is an item in the array(obj):
   images.forEach(creatureObj => {
-    const $newImage = $('.photo-template').clone();
 
-    $newImage.find('h2').text(creatureObj.title);
-    $newImage.find('img').attr('src', creatureObj.image_url);
-    $newImage.find('p').text(creatureObj.description);
-    $newImage.attr('class', creatureObj.keyword);
-    $newImage.addClass('image-card');
+    const imageCardMarkup = render(creatureObj);
 
-    // data attributes, don't have display meaning, but have meaning for the dev:
-    // $newImage.attr('data-type', images.type);
-
-    $('.photo').append($newImage);
+    $('.photo').append(imageCardMarkup);
 
   });
 	
-  makeDropDown(images);
+  makeFilterDropDown(images);
+  makeSortDropDown();
 }
 
-function makeDropDown(images){
+function makeFilterDropDown(images){
   // create an array to hold keywords
   const keywordsArray = [];
+
+  // console.log('makedropdown keywordsArray', keywordsArray);
 
   // we need to push all keywords into the keyword array
 
@@ -61,41 +64,46 @@ function makeDropDown(images){
   });
 
   keywordsArray.forEach((arrayElement) => {
-    $('select').append($('<option>', {value: arrayElement, text: arrayElement}))
-    console.log('arrayElement keyword', arrayElement);
-  });  
-  
-  console.log('keywords arr', keywordsArray);
+    $('#filter-button').append($('<option>', {value: arrayElement, text: arrayElement}))
+  });
 
-  // Event listeners 
+  // $('#sort-button').append($('<option>', {text: 'Sort by number of horns'}))
 
-  $('select').on('change', handleChange);
-  $('nav li').on('click', handlePage);
+  // Event Listeners:
+
+  $('#filter-button').on('change', handleFilterChange);
+  $('nav li').on('click', handlePageNum);
+}
+
+function makeSortDropDown() {
+  $('#sort-button').append($('<option>', {text: 'Sort by number of horns'}))
 }
 
 // Filter menu event handler:
 
-const handleChange = event => {
+const handleFilterChange = event => {
+
+  // Clear filter keyword content:
+  
+
   const dropOption = $(event.target).val();
 
   if(dropOption === 'default'){
     $('main section').show();
-    $('.photo-template:first-child').hide();
   } else {
-    $('.image-card').hide();
+    $('.photo section').hide();
     $(`.${dropOption}`).show();
   }
-  // console.log('dropOption', dropOption);
+  console.log('Filter dropOption clicked:', dropOption);
 }
 
 // Pagination menu event handler:
 
-const handlePage = event => {
+const handlePageNum = event => {
   
   const pageNumber = $(event.target).attr('data-page');
 
-  // $('section.photo-template').hide();
-  $('.image-card').show();
+  $('.photo').show();
   loadData(pageNumber);
 
   console.log('page num', pageNumber);

@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Gallery of Horns</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/modules.css">
     <link href="https://fonts.googleapis.com/css?family=Carter+One|Open+Sans&display=swap" rel="stylesheet">
+    <title>The Gallery of Horns</title>
+    <script id="handlebar-temp" type="text/x-handlebars-template">
+    
+      <!-- photo cards -->
+      <section class="{{keyword}}">
+          <h2>{{title}}</h2>
+          <img src="{{image_url}}" alt="{{keyword}}">
+          <p>{{description}}</p>
+        </section>
+        
+    </script>
   </head>
   <body>
     <header>
@@ -18,21 +28,27 @@
           <li data-page="1">Page 1</li>
           <li data-page="2">Page 2</li>
         </ul>
+        
       </nav>
 
       <select id="filter-button">
         <option value="default">Filter by Keyword</option>
       </select>
 
+      <select id="sort-button">
+          <option value="default">Sort by Title</option>
+        </select>
+
     </header>
     <main>
         
       <div class="photo">
-        <section class="photo-template">
+        <!-- photo cards -->
+        <!-- <section class="{{keyword}}">
         <h2></h2>
         <img src="" alt="">
         <p></p>
-        </section>
+        </section> -->
       </div>
       
     </main>
@@ -43,6 +59,7 @@
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js" integrity="sha256-ngJY93C4H39YbmrWhnLzSyiepRuQDVKDNCWO2iyMzFw=" crossorigin="anonymous"></script>
 	  <script src="js/app.js"></script>
   </body>
 </html>
