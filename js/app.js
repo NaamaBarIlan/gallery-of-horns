@@ -41,6 +41,8 @@ function displayPage(images) {
 
     $('.photo').append(imageCardMarkup);
 
+    console.log('image card markup', imageCardMarkup);
+
   });
 	
   makeFilterDropDown(images);
