@@ -10,8 +10,8 @@ function loadData(pageNum){
 
   const success = images => {
     displayPage(images);
-    // console.log(images);
   }
+
   // const success = images => console.log(images);
   const failure = error => console.error(error);
 
@@ -43,14 +43,15 @@ function displayPage(images) {
 
   });
 	
-  makeDropDown(images);
+  makeFilterDropDown(images);
+  makeSortDropDown();
 }
 
-function makeDropDown(images){
+function makeFilterDropDown(images){
   // create an array to hold keywords
   const keywordsArray = [];
 
-  console.log('makedropdown keywordsArray', keywordsArray);
+  // console.log('makedropdown keywordsArray', keywordsArray);
 
   // we need to push all keywords into the keyword array
 
@@ -63,15 +64,19 @@ function makeDropDown(images){
   });
 
   keywordsArray.forEach((arrayElement) => {
-    $('select').append($('<option>', {value: arrayElement, text: arrayElement}))
-  });  
-  
-  // console.log('keywords arr', keywordsArray);
+    $('#filter-button').append($('<option>', {value: arrayElement, text: arrayElement}))
+  });
+
+  // $('#sort-button').append($('<option>', {text: 'Sort by number of horns'}))
 
   // Event Listeners:
 
-  $('select').on('change', handleFilterChange);
+  $('#filter-button').on('change', handleFilterChange);
   $('nav li').on('click', handlePageNum);
+}
+
+function makeSortDropDown() {
+  $('#sort-button').append($('<option>', {text: 'Sort by number of horns'}))
 }
 
 // Filter menu event handler:
