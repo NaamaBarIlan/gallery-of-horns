@@ -41,15 +41,17 @@ Number and name of feature: #2 Templating
 
 Estimate of time needed to complete: 2 hours
 
-Actual time needed to complete: Day 2
+Actual time needed to complete: 2 Days
 
 ##
 
-Number and name of feature: #4 Styling with Flexbox
+Number and name of feature: #3 Styling with Flexbox
 
 Estimate of time needed to complete: 2 hours
 
-Actual time needed to complete: Day 2
+
+Actual time needed to complete: 3 hours
+
 
 ##
 
