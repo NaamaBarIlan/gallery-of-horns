@@ -62,8 +62,10 @@ function makeFilterDropDown(images){
     // if the word is not in the array
     if(!keywordsArray.includes(element.keyword)){
       keywordsArray.push(element.keyword) 
-    }
+    } 
   });
+
+  $(`#filter-button`).empty();
 
   keywordsArray.forEach((arrayElement) => {
     $('#filter-button').append($('<option>', {value: arrayElement, text: arrayElement}))
@@ -78,8 +80,15 @@ function makeFilterDropDown(images){
 }
 
 function makeSortDropDown() {
-  $('#sort-button').append($('<option>', {text: 'Sort by number of horns'}))
+  $(`#sort-button`).empty();
+
+  $('#sort-button').append($('<option>', {value: 'horns', text: 'Sort by number of horns'}));
+  $('#sort-button').append($('<option>', {value: 'title', text: 'Sort by Title'}));
+  //TO DO.. Change Event, add a listener, grab the value, 
+  //clear the DOM, pull the images array and then sort it (horns, title)
+  //sort the collection before we pull
 }
+
 
 // Filter menu event handler:
 
